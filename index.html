@@ -14,36 +14,47 @@
     <section id="stopwatch_container">
         <label for="milli_seconds">Milliseconds</label>
         <h1 id="milli_seconds">000</h1>
-        <button id="start_button" onclick="press_start()">Start</button>
-        <button id="stop_button" onclick="stop_timer()">Stop</button>
-        <button id="reset_button" onclick="reset_timer()">Reset</button>
+        <button id="start_button">Start</button>
+        <button id="stop_button">Stop</button>
+        <button id="reset_button">Reset</button>
     </section>
 </body>
 
 </html>
 <script>
-    let run = true
-    function stop_timer() {
-        run = false
-    }
-    function press_start() {
-        let count = 0;
-        while(count < 2000 && run){
-            for (let i = 0; i < 1000 && run ; i++) {
-               if (i < 10){
-                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = `00${i}` }, 1000);
-               }
-               else if (i < 100){
-                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = `0${i}` }, 1000);
-               }
-               else {
-                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = i }, 1000);
-               }
-            }
-            count = count + 1
-        }
-    }
-    function reset_timer() {
+    let run = false
+    let timerMillis = 0;
+    let startBtn = document.getElementById("start_button");
+    let stopBtn = document.getElementById("stop_button");
+    let resetBtn = document.getElementById("reset_button");
+
+    startBtn.addEventListener("click", () => {
+        run = true;
+        runTimer();
+    });
+
+    stopBtn.addEventListener("click", () => {
+        run = false;
+    });
+
+    resetBtn.addEventListener("click", () => {
+        run = false;
+        timerMillis = 0;
         document.getElementById("milli_seconds").innerHTML = "000"
+    })
+
+    function runTimer() {
+        if (run) {
+            timerMillis++;
+            if (timerMillis >= 1000) {
+                timerMillis = 0
+            }
+
+            let timer = timerMillis < 10 ? `00${timerMillis}` : timerMillis < 100 ?
+                `0${timerMillis}` : `${timerMillis}`;
+
+            document.getElementById("milli_seconds").innerHTML = timer;
+            setTimeout(runTimer, 10)
+        }
     }
 </script>
