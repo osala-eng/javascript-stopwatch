@@ -5,7 +5,8 @@
   "dependencies": {
   },
   "scripts": {
-    "start": "npx http-server ./ --port 3000"
+    "start": "npx http-server ./ --port 3000",
+    "submit": "node skillreactor/submit.js"
   },
   "browserslist": {
     "production": [
