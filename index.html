@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head id="heading_container">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,42 @@
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
     <title id="heading">Skillreactor Stopwatch</title>
 </head>
+
 <body>
-    <img src="/assets/logo.png" alt="Skill reactor logo" id="skillreactor_logo"
-    width="100px" height="20px">
+    <img src="/assets/logo.png" alt="Skill reactor logo" id="skillreactor_logo" width="100px" height="20px">
     <section id="stopwatch_container">
         <label for="milli_seconds">Milliseconds</label>
         <h1 id="milli_seconds">000</h1>
-        <button id="start_button">Start</button>
-        <button id="stop_button">Stop</button>
-        <button id="reset_button">Reset</button>
+        <button id="start_button" onclick="press_start()">Start</button>
+        <button id="stop_button" onclick="stop_timer()">Stop</button>
+        <button id="reset_button" onclick="reset_timer()">Reset</button>
     </section>
 </body>
+
 </html>
+<script>
+    let run = true
+    function stop_timer() {
+        run = false
+    }
+    function press_start() {
+        let count = 0;
+        while(count < 2000 && run){
+            for (let i = 0; i < 1000 && run ; i++) {
+               if (i < 10){
+                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = `00${i}` }, 1000);
+               }
+               else if (i < 100){
+                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = `0${i}` }, 1000);
+               }
+               else {
+                setTimeout(() => {document.getElementById("milli_seconds").innerHTML = i }, 1000);
+               }
+            }
+            count = count + 1
+        }
+    }
+    function reset_timer() {
+        document.getElementById("milli_seconds").innerHTML = "000"
+    }
+</script>
