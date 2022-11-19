@@ -20,8 +20,8 @@ const runTimer = () => {
         timerMillis = 0;
         timerSecs++;
       }
-      if (timerSecs >= min)
-      {
+
+      if (timerSecs >= min) {
         timerSecs = 0;
       }
 
@@ -33,8 +33,7 @@ const runTimer = () => {
         timer = `${timerMillis}`;
       }
 
-      if (timerSecs < ten)
-      {
+      if (timerSecs < ten) {
         secs = `0${timerSecs}`;
       }
       else {
