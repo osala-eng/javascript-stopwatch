@@ -1,8 +1,8 @@
 let run = false;
 let timerMillis = 0;
-const startBtn = document.getElementById("start_button");
-const stopBtn = document.getElementById("stop_button");
-const resetBtn = document.getElementById("reset_button");
+const startBtn = document.getElementById('start_button');
+const stopBtn = document.getElementById('stop_button');
+const resetBtn = document.getElementById('reset_button');
 
 const runTimer = () => {
     if (run) {
@@ -13,7 +13,7 @@ const runTimer = () => {
       }
       const ten = 10;
       const oneHundred = 100;
-      let timer = "0";
+      let timer;
       if (timerMillis < ten) {
         timer = `00${timerMillis}`;
       } else if (timerMillis < oneHundred) {
@@ -21,22 +21,22 @@ const runTimer = () => {
       } else {
         timer = `${timerMillis}`;
       }
-      document.getElementById("milli_seconds").innerHTML = timer;
-      setTimeout(runTimer, 10);
+      document.getElementById('milli_seconds').innerHTML = timer;
+      setTimeout(runTimer, ten);
     }
-  }
+  };
 
-startBtn.addEventListener("click", () => {
+startBtn.addEventListener('click', () => {
   run = true;
   runTimer();
 });
 
-stopBtn.addEventListener("click", () => {
+stopBtn.addEventListener('click', () => {
   run = false;
 });
 
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener('click', () => {
   run = false;
   timerMillis = 0;
-  document.getElementById("milli_seconds").innerHTML = "000";
+  document.getElementById('milli_seconds').innerHTML = '000';
 });
