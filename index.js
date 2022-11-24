@@ -15,7 +15,7 @@ const runTimer = () => {
       let timer;
       let secs;
 
-      timerMillis++;
+      timerMillis+=10;
       if (timerMillis >= maxTime) {
         timerMillis = 0;
         timerSecs++;
