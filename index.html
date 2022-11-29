@@ -6,20 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/public/index.css">
     <title id="heading">Skillreactor Stopwatch</title>
 </head>
 
 <body>
-    <img src="/assets/logo.png" alt="Skill reactor logo" id="skillreactor_logo" width="100px" height="20px">
+    <img src="/assets/logo.png" alt="Skill reactor logo" id="skillreactor_logo" width="150px" height="30px">
     <section id="stopwatch_container">
-        <label for="milli_seconds">Milliseconds</label>
-        <h1 id="milli_seconds">000</h1>
-        <label for="seconds">Seconds</label>
-        <h1 id="seconds">00</h1>
-        <button id="start_button">Start</button>
-        <button id="stop_button">Stop</button>
-        <button id="reset_button">Reset</button>
+        <div id="clock_screen">
+            <div class="value-disp">
+                <label for="hours" class="value-labels">HRS</label>
+                <h1 id="hours">00</h1>
+            </div>
+            <div class="value-disp">
+                <label for="minutes" class="value-labels">MIN</label>
+                <h1 id="minutes">00</h1>
+            </div>
+            <div class="value-disp">
+                <label for="seconds" class="value-labels">SEC</label>
+                <h1 id="seconds">00</h1>
+            </div>
+            <div class="value-disp">
+                <label for="milli_seconds" class="value-labels">MS</label>
+                <h1 id="milli_seconds">000</h1>
+            </div>
+        </div>
+        <div id="stopwatch_controls">
+            <button id="start_button" class="control-button">Start</button>
+            <button id="stop_button" class="control-button" >Stop</button>
+            <button id="reset_button" class="control-button">Reset</button>
+        </div>
     </section>
+    <img src="/assets/xspin.png" alt="spinner" width="200px" id="spinner" height="200px">
+    <footer><a class="no-style" href="mailto://jashonosala@gmail.com">By Jashon Osala</a></footer>
     <script src="/index.js"></script>
 </body>
 
